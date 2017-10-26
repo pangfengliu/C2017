@@ -1,5 +1,5 @@
-#include<stdio.h>
-#include"placement.h"
+#include <stdio.h>
+#include "placement.h"
  
 int main(){
   int N,M,method;

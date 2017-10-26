@@ -1,3 +1,5 @@
+/* the main program for the bucket and ball problem */
+
 #include <stdio.h>
 #include "placement.h"
  
