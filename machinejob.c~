@@ -1,0 +1,11 @@
+#include <stdio.h>
+
+int main()
+{
+  int M, J;
+  scanf("%d%d", &M, &J);
+
+  int jobReady[500];
+  for (j = 0; j < J; j++) {
+    scanf("%d%d", 
+}

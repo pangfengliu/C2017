@@ -1,0 +1,87 @@
+#include <stdio.h>
+
+void printMap(int map[500][500], int R, int C)
+{
+  for (int r = 0; r < R; r++) {
+    for (int c = 0; c < C; c++)
+      printf("%d", map[r][c]);
+    printf("\n");
+  }
+}
+
+int main()
+{
+  /* get the input */
+
+  int R, C;
+  scanf("%d%d", &R, &C);
+  int tankR, tankC;
+  scanf("%d%d", &tankR, &tankC);
+
+  int map[500][500];
+  for (int r = 0; r < R; r++)
+    for (int c = 0; c < C; c++) {
+      if (r < tankR && c < tankC)
+	map[r][c] = 1;
+      else
+	map[r][c] = 0;
+    }
+
+  int obstacle;
+  scanf("%d", &obstacle);
+  for (int o = 0; o < obstacle; o++) {
+    int row, col;
+    scanf("%d%d", &col, &row);
+    map[row][col] = 2;
+  }
+  
+  printMap(map, R, C);
+
+  /* process the commands */
+  int command;
+  int currentR = 0, currentC = 0;
+  while (scanf("%d", &command) == 1) {
+    printf("command is %d\n", command);
+    switch (command) {
+    case 0:
+      printMap(map, R, C);
+      break;
+    case 1:
+      if (currentC + tankC < C) {
+	obstacle = 0;
+	for (int r = currentR; r < currentR + tankR; r++)
+	  if (map[r][currentC + tankC] == 2)
+	    obstacle++;
+	
+	if (obstacle <= 1) {
+	  for (int r = currentR; r < currentR + tankR; r++)
+	    map[r][currentC + tankC] = 1;
+	  for (int r = currentR; r < currentR + tankR; r++)
+	    map[r][currentC] = 0;
+	  currentC++;
+	}
+      }
+      break;
+
+    case 1:
+      if (currentC + tankC < C) {
+	obstacle = 0;
+	for (int r = currentR; r < currentR + tankR; r++)
+	  if (map[r][currentC + tankC] == 2)
+	    obstacle++;
+	
+	if (obstacle <= 1) {
+	  for (int r = currentR; r < currentR + tankR; r++)
+	    map[r][currentC + tankC] = 1;
+	  for (int r = currentR; r < currentR + tankR; r++)
+	    map[r][currentC] = 0;
+	  currentC++;
+	}
+      }
+      break;
+
+
+
+    }
+  }
+}
