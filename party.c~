@@ -1,9 +1,0 @@
-#include <stdio.h>
-
-int main()
-{
-  int friend[512];
-
-  int F;
-  scanf("%d", &F);
-}
