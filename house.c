@@ -13,5 +13,5 @@ int main()
     printf("no\n");
 
   printf("%p %p\n", a, &a);
-  printf("%p %p\n", a, a + 10);
+  printf("%p %p %p\n", a, a + 10, &a + 1);
 }
