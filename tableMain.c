@@ -12,9 +12,10 @@ int main(){
  
   int ***ptr;
   ptr = constructTable(A, B);
+  return 0;
   for(int i = 0; *(ptr+i) != NULL; i++)
     for(int j = 0; j < A[i]; j++)
-      for(int k = 0; *(*(*(ptr+i)+j)+k) != 0; k++)
-	printf("%d ", *(*(*(ptr+i)+j)+k));
+      for(int k = 0; ptr[i][j][k] != 0; k++)
+	printf("%d ", ptr[i][j][k]);
   return 0;
 }
